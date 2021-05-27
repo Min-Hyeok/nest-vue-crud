@@ -6,6 +6,6 @@ export class UserService {
     async fetchUserInfo(idx: number): Promise<Object> {
         const response = await User.fetchUserInfo(idx);
 
-        return response || {};
+        return response;
     }
 }
