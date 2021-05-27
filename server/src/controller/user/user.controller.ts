@@ -1,8 +1,9 @@
 import { Controller, Get, Req } from '@nestjs/common';
-import { UserService } from './user.service';
+// import { UserService } from './user.service';
+import { UserService } from '../../service/user/user.service';
 import { Request } from 'express';
-import { ApiTags, ApiOperation, ApiCreatedResponse, ApiParamOptions } from '@nestjs/swagger';
-import { UserInfoDto } from './dto/user.dto';
+import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
+import { UserInfoDto } from '../../dto/user/user.dto';
 
 @Controller('api/user')
 @ApiTags('사용자 API')
