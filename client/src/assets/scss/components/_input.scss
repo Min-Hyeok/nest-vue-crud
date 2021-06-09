@@ -1,0 +1,16 @@
+.b-input {
+    position: relative;
+    &__desc {
+        color: $primary-light;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__textfield {
+        padding: 5px 10px;
+        border: 1px solid $primary-light;
+        outline: none;
+        border-radius: 10px;
+    }
+}

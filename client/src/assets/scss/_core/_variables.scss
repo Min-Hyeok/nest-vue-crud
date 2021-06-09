@@ -1,0 +1,16 @@
+$primary: #5d1049;
+$primary-bold: #4e0d3a;
+$primary-light: #720d5d;
+$red: #e30425;
+$black: #000;
+$white: #fff;
+
+$colors: () !default;
+$colors: map-merge((
+    'primary': $primary,
+    'primary-bold': $primary-bold,
+    'primary-light': $primary-light,
+    'red': $red,
+    'black': $black,
+    'white': $white,
+), $colors);
