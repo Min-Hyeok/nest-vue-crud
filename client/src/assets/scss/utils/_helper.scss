@@ -2,3 +2,13 @@
     .#{$color} { background-color: $key !important; }
     .#{$color}--text { color: $key !important; }
 }
+
+#content {
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: $white;
+    border-radius: 10px;
+    position: relative;
+    bottom: 10px;
+    padding-top: 10px;
+}

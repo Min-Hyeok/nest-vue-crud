@@ -1,11 +1,11 @@
 .b-header {
-    height: 70px;
+    height: 60px;
     background-color: $primary;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     color: $white;
-    padding: 0 20px;
+    padding: 30px 20px 0;
     &__list {
         display: flex;
     }

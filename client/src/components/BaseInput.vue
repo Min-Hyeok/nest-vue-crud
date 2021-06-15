@@ -6,8 +6,9 @@
               class="b-input__textfield"
               :type="type"
               :name="name"
+              :placeholder="placeholder"
               v-model="val"
-              @focus="activeInputDesc(this)"
+              @input="changeInput"
             >
         </label>
     </div>
@@ -20,7 +21,7 @@ import { baseInput } from '../composition/base-input';
 export default defineComponent({
   name: 'b-input',
   props: {
-    value: {
+    modelValue: {
       type: [String, Number],
       default: null
     },
@@ -35,17 +36,24 @@ export default defineComponent({
     name: {
       type: String,
       default: null
+    },
+    placeholder: {
+      type: String,
+      default: null
     }
   },
   setup(props, context) {
     const {
       val,
-      activeInputDesc
-    } = baseInput(props, context);
+    } = baseInput();
+
+    function changeInput (): void {
+      context.emit('update:modelValue', val.value);
+    }
 
     return {
       val,
-      activeInputDesc
+      changeInput
     };
   }
 });

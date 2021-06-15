@@ -1,0 +1,11 @@
+.b-form {
+    max-width: 800px;
+    border-radius: 5px;
+    margin: 0 auto;
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        color: $white;
+        padding: 8px 10px 5px;
+    }
+}

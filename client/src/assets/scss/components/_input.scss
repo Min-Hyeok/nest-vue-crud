@@ -1,16 +1,29 @@
 .b-input {
     position: relative;
     &__desc {
-        color: $primary-light;
+        color: $white;
         position: absolute;
         left: 10px;
         top: 50%;
         transform: translateY(-50%);
+        font-size: 14px;
+        transition: .4s all;
+        color: fade-out($white, 0.3);
+        &--active {
+            top: -15%;
+            color: $primary-light;
+        }
     }
     &__textfield {
-        padding: 5px 10px;
-        border: 1px solid $primary-light;
+        padding: 10px 15px;
+        background-color: $primary-light;
+        color: $white;
+        border: none;
         outline: none;
-        border-radius: 10px;
+        border-radius: 5px;
+        width: 200px;
+        &::placeholder {
+            color: fade-out($white, 0.3);
+        }
     }
 }

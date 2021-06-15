@@ -5,7 +5,7 @@
         <li class="b-header__item"><router-link to="/">게시판</router-link></li>
       </ul>
       <ul class="b-header__list">
-        <li class="b-header__item"><router-link to="/">회원가입</router-link></li>
+        <li class="b-header__item"><router-link to="/register">회원가입</router-link></li>
         <li class="b-header__item"><router-link to="/">로그인</router-link></li>
         <li class="b-header__item"><router-link to="/">마이페이지</router-link></li>
       </ul>

@@ -1,7 +1,9 @@
 <template>
   <div>
     <b-header></b-header>
-    <router-view/>
+    <div id="content">
+      <router-view/>
+    </div>
   </div>
   
 </template>
@@ -11,11 +13,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
-    const a = 'test';
-
-    return {
-      a
-    };
+    return {};
   },
 })
 </script>
