@@ -1,4 +1,5 @@
 import { BaseEntity, Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { UserRegisterDto } from '../../dto/user/user.dto';
 
 @Entity()
 export class User extends BaseEntity {
@@ -27,5 +28,21 @@ export class User extends BaseEntity {
         return this.createQueryBuilder('user')
                 .where('user.idx = :idx', { idx })
                 .getOne();
+    }
+
+    static findUser(id: string) {
+        return this.createQueryBuilder('user')
+                .where('user.id = :id', { id })
+                .getOne();
+    }
+
+    static register(register: UserRegisterDto) {
+        return this.createQueryBuilder('user')
+                .insert()
+                .into('user')
+                .values([
+                    register
+                ])
+                .execute()
     }
 }

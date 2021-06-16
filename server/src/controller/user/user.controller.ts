@@ -1,9 +1,9 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 // import { UserService } from './user.service';
 import { UserService } from '../../service/user/user.service';
 import { Request } from 'express';
 import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
-import { UserInfoDto } from '../../dto/user/user.dto';
+import { UserInfoDto, UserRegisterDto } from '../../dto/user/user.dto';
 
 @Controller('api/user')
 @ApiTags('사용자 API')
@@ -17,6 +17,14 @@ export class UserController {
         const idx = Number(request.query.idx);
 
         return this.userService.fetchUserInfo(idx);
+    }
+
+    @Post('register')
+    @ApiOperation({ summary: '회원가입', description: '입력받은 정보를 바탕으로 회원가입을 한다' })
+    @ApiCreatedResponse({ type: UserRegisterDto })
+    register(@Body() register: UserRegisterDto) {
+
+        return this.userService.register(register);
     }
 
 }

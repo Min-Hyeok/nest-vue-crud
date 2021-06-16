@@ -19,3 +19,17 @@ export class UserInfoDto {
     @ApiPropertyOptional({ description: '마지막으로 로그인 한 날짜' })
     logindate: string;
 }
+
+export class UserRegisterDto {
+    @ApiPropertyOptional({ description: '사용자 id' })
+    id: string;
+
+    @ApiPropertyOptional({ description: '사용자 password' })
+    password: string;
+
+    @ApiPropertyOptional({ description: '사용자 이름' })
+    name: string;
+
+    @ApiPropertyOptional({ description: '사용자 이메일' })
+    email: string;
+}
