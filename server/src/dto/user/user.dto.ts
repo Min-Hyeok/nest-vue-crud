@@ -33,3 +33,11 @@ export class UserRegisterDto {
     @ApiPropertyOptional({ description: '사용자 이메일' })
     email: string;
 }
+
+export class UserLoginDto {
+    @ApiPropertyOptional({ description: '사용자 id' })
+    id: string;
+
+    @ApiPropertyOptional({ description: '사용자 password' })
+    password: string;
+}

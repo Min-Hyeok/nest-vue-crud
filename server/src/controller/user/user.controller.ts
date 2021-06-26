@@ -3,7 +3,7 @@ import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { UserService } from '../../service/user/user.service';
 import { Request } from 'express';
 import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
-import { UserInfoDto, UserRegisterDto } from '../../dto/user/user.dto';
+import { UserInfoDto, UserRegisterDto, UserLoginDto } from '../../dto/user/user.dto';
 
 @Controller('api/user')
 @ApiTags('사용자 API')
@@ -25,6 +25,14 @@ export class UserController {
     register(@Body() register: UserRegisterDto) {
 
         return this.userService.register(register);
+    }
+
+    @Post('login')
+    @ApiOperation({ summary: '로그인', description: '입력받은 정보를 바탕으로 로그인을 한다' })
+    @ApiCreatedResponse({ type: UserLoginDto })
+    login(@Body() login: UserLoginDto) {
+
+        return this.userService.login(login);
     }
 
 }

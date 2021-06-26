@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { UserRegisterDto } from '../../dto/user/user.dto';
+import { UserRegisterDto, UserLoginDto } from '../../dto/user/user.dto';
 
 @Entity()
 export class User extends BaseEntity {
@@ -44,5 +44,14 @@ export class User extends BaseEntity {
                     register
                 ])
                 .execute()
+    }
+
+    static login(login: UserLoginDto) {
+        const { id, password } = login;
+
+        return this.createQueryBuilder('user')
+            .where('user.id = :id', { id })
+            .andWhere('user.password = :password', { password })
+            .getOne();
     }
 }

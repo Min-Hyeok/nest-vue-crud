@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { User } from '../../entity/user/user.entity';
-import { UserRegisterDto } from '../../dto/user/user.dto';
+import { UserRegisterDto, UserLoginDto } from '../../dto/user/user.dto';
 import { DateTime } from 'luxon';
 
 @Injectable()
@@ -33,5 +33,17 @@ export class UserService {
         const response = await User.register(params);
 
         return response;
+    }
+
+    async login(login: UserLoginDto): Promise<boolean> {
+        const userInfo = await User.login(login);
+
+        if (!userInfo) {
+            throw new HttpException('아이디 또는 비밀번호가 일치하지 않습니다.', HttpStatus.BAD_REQUEST);
+        }
+
+        console.log(userInfo);
+
+        return true;
     }
 }
