@@ -30,7 +30,7 @@ export class User extends BaseEntity {
                 .getOne();
     }
 
-    static findUser(id: string) {
+    static confirmId(id: string) {
         return this.createQueryBuilder('user')
                 .where('user.id = :id', { id })
                 .getOne();
@@ -46,7 +46,7 @@ export class User extends BaseEntity {
                 .execute()
     }
 
-    static login(login: UserLoginDto) {
+    static findUser(login: UserLoginDto) {
         const { id, password } = login;
 
         return this.createQueryBuilder('user')

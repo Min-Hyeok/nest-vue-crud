@@ -8,6 +8,7 @@ import { UserController } from './controller/user/user.controller';
 import { UserService } from './service/user/user.service';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
+import { UserModule } from './service/user/user.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { AuthModule } from './auth/auth.module';
     //   renderPath: join(__dirname, '..', 'static'),
     // })
     DatabaseModule,
-    AuthModule
+    AuthModule,
+    UserModule
   ],
   controllers: [AppController, UserController],
   providers: [AppService, UserService],

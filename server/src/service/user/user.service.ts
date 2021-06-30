@@ -11,14 +11,20 @@ export class UserService {
         return response;
     }
 
-    async findUser(id: string): Promise<Object> {
-        const response = await User.findUser(id);
+    async confirmId(id: string): Promise<Object> {
+        const response = await User.confirmId(id);
 
         return response;
     }
 
+    async findUser(user: UserLoginDto): Promise<Object> {
+        const userInfo = await User.findUser(user);
+
+        return userInfo;
+    }
+
     async register(register: UserRegisterDto): Promise<Object> {
-        const isDuplicated = await this.findUser(register.id);
+        const isDuplicated = await this.confirmId(register.id);
 
         if (isDuplicated) {
             throw new HttpException('중복된 아이디 입니다.', HttpStatus.BAD_REQUEST);
@@ -35,15 +41,13 @@ export class UserService {
         return response;
     }
 
-    async login(login: UserLoginDto): Promise<boolean> {
-        const userInfo = await User.login(login);
+    async login(login: UserLoginDto): Promise<Object> {
+        const userInfo = await this.findUser(login);
 
         if (!userInfo) {
             throw new HttpException('아이디 또는 비밀번호가 일치하지 않습니다.', HttpStatus.BAD_REQUEST);
         }
 
-        console.log(userInfo);
-
-        return true;
+        return userInfo;
     }
 }
